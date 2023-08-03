@@ -40,10 +40,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//        let content = UIContentConfiguration
-//        content
-//        cell.textLabel
+        var configuration = cell.defaultContentConfiguration()
+        configuration.text = "some text"
         
+        cell.contentConfiguration = configuration
         return cell
     }
 
