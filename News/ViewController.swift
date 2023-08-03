@@ -7,11 +7,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    private let tableView: UITableView = {
+        let table = UITableView()
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return table
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News"
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
         view.backgroundColor = .systemBackground
         
         APICaller.shared.getTopStories { result in
@@ -24,6 +33,19 @@ class ViewController: UIViewController {
         }
     }
 
+    // table
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        let content = UIContentConfiguration
+//        content
+//        cell.textLabel
+        
+        return cell
+    }
 
 }
 

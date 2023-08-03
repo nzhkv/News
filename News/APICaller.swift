@@ -45,7 +45,7 @@ struct APIResponse: Codable {
 }
 
 struct Article: Codable {
-//    let sourse: Sourse
+    let sourse: Sourse?
     let title: String
     let description: String?
     let url: String?
