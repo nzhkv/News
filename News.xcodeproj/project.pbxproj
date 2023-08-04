@@ -64,11 +64,11 @@
 				2EF66B782A7ADDDA00D033D1 /* SceneDelegate.swift */,
 				2EF66B7A2A7ADDDA00D033D1 /* ViewController.swift */,
 				2EF66B8C2A7D20AE00D033D1 /* NewsTableViewCell.swift */,
+				2EF66B8A2A7ADFB000D033D1 /* APICaller.swift */,
 				2EF66B7C2A7ADDDA00D033D1 /* Main.storyboard */,
 				2EF66B7F2A7ADDDA00D033D1 /* Assets.xcassets */,
 				2EF66B812A7ADDDA00D033D1 /* LaunchScreen.storyboard */,
 				2EF66B842A7ADDDA00D033D1 /* Info.plist */,
-				2EF66B8A2A7ADFB000D033D1 /* APICaller.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
