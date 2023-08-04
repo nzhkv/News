@@ -36,8 +36,18 @@ class NewsTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let newsImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .systemRed
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(newsTitleLabel)
+        contentView.addSubview(subtitleleLabel)
+        contentView.addSubview(newsImageView)
     }
     
     required init?(coder: NSCoder) {
