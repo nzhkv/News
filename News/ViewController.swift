@@ -46,6 +46,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.contentConfiguration = configuration
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deleteSections(indexPath, with: true)
+        
+    }
 
 }
 
