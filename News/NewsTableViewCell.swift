@@ -63,7 +63,15 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     func configure(with viewModel: NewsTableViewCellViewModel) {
+        newsTitleLabel.text = viewModel.title
+        subtitleleLabel.text = viewModel.subtitle
         
+        // Image
+        if let data = viewModel.imageData {
+            newsImageView.image = UIImage(data: data)
+        }   else {
+            //fetch
+        }
     }
 
 }
