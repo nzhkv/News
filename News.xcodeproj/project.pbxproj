@@ -14,6 +14,7 @@
 		2EF66B802A7ADDDA00D033D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EF66B7F2A7ADDDA00D033D1 /* Assets.xcassets */; };
 		2EF66B832A7ADDDA00D033D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF66B812A7ADDDA00D033D1 /* LaunchScreen.storyboard */; };
 		2EF66B8B2A7ADFB000D033D1 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF66B8A2A7ADFB000D033D1 /* APICaller.swift */; };
+		2EF66B8D2A7D20AE00D033D1 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF66B8C2A7D20AE00D033D1 /* NewsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2EF66B822A7ADDDA00D033D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EF66B842A7ADDDA00D033D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EF66B8A2A7ADFB000D033D1 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		2EF66B8C2A7D20AE00D033D1 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				2EF66B762A7ADDDA00D033D1 /* AppDelegate.swift */,
 				2EF66B782A7ADDDA00D033D1 /* SceneDelegate.swift */,
 				2EF66B7A2A7ADDDA00D033D1 /* ViewController.swift */,
+				2EF66B8C2A7D20AE00D033D1 /* NewsTableViewCell.swift */,
 				2EF66B7C2A7ADDDA00D033D1 /* Main.storyboard */,
 				2EF66B7F2A7ADDDA00D033D1 /* Assets.xcassets */,
 				2EF66B812A7ADDDA00D033D1 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				2EF66B7B2A7ADDDA00D033D1 /* ViewController.swift in Sources */,
 				2EF66B772A7ADDDA00D033D1 /* AppDelegate.swift in Sources */,
+				2EF66B8D2A7D20AE00D033D1 /* NewsTableViewCell.swift in Sources */,
 				2EF66B792A7ADDDA00D033D1 /* SceneDelegate.swift in Sources */,
 				2EF66B8B2A7ADFB000D033D1 /* APICaller.swift in Sources */,
 			);
