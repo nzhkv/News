@@ -11,7 +11,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     private let tableView: UITableView = {
         let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
+        table.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
         return table
     }()
     
@@ -32,13 +32,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     NewsTableViewCellViewModel(
                         title: $0.title,
                         subtitle: $0.description ?? "No description",
-                        imageURL: URL(string: $0.urlToImage ?? ""
-                                     ))
+                        imageURL: URL(string: $0.urlToImage ?? "")
+                    )
                 })
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
+                
             case .failure(let error):
                 print("error: \(error)")
             }
@@ -59,11 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.identifier, for: indexPath) as? NewsTableViewCell else {
             fatalError()
         }
-        //        var configuration = cell.defaultContentConfiguration()
-        //        configuration.text = "some text"
-        //
-        //        cell.contentConfiguration = configuration
-        cell.configure(with: viewModels[indexPath])
+        cell.configure(with: viewModels[indexPath.row])
         
         return cell
     }
