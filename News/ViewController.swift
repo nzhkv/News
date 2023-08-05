@@ -8,13 +8,15 @@
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     private let tableView: UITableView = {
         let table = UITableView()
         table.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
         return table
     }()
+    
+    private let searchVC = UISearchController(searchResultsController: nil)
     
     private var articles = [Article]()
     private var viewModels = [NewsTableViewCellViewModel]()
@@ -27,26 +29,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         view.backgroundColor = .systemBackground
         
-        APICaller.shared.getTopStories { [weak self] result in
-            switch result {
-            case .success(let articles):
-                self?.articles = articles
-                self?.viewModels = articles.compactMap({
-                    NewsTableViewCellViewModel(
-                        title: $0.title,
-                        subtitle: $0.description ?? "No description",
-                        imageURL: URL(string: $0.urlToImage ?? "")
-                    )
-                })
-                
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-                
-            case .failure(let error):
-                print("error: \(error)")
-            }
-        }
+        fetchTopStories()
+        createSearchBar()
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,5 +65,57 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return 150
     }
     
+    private func fetchTopStories() {
+        APICaller.shared.getTopStories { [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.articles = articles
+                self?.viewModels = articles.compactMap({
+                    NewsTableViewCellViewModel(
+                        title: $0.title,
+                        subtitle: $0.description ?? "No description",
+                        imageURL: URL(string: $0.urlToImage ?? "")
+                    )
+                })
+                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+                
+            case .failure(let error):
+                print("error: \(error)")
+            }
+        }
+    }
+    
+    private func createSearchBar() {
+        navigationItem.searchController = searchVC
+        searchVC.searchBar.delegate = self
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, !text.isEmpty else { return }
+        
+        APICaller.shared.search(with: text) { [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.articles = articles
+                self?.viewModels = articles.compactMap({
+                    NewsTableViewCellViewModel(
+                        title: $0.title,
+                        subtitle: $0.description ?? "No description",
+                        imageURL: URL(string: $0.urlToImage ?? "")
+                    )
+                })
+                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+                
+            case .failure(let error):
+                print("error: \(error)")
+            }
+        }
+    }
 }
 
