@@ -41,7 +41,7 @@ class NewsTableViewCell: UITableViewCell {
     private let newsImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .systemRed
+        imageView.backgroundColor = .secondarySystemBackground
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -84,6 +84,9 @@ class NewsTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        newsTitleLabel.text = nil
+        subtitleleLabel.text = nil
+        newsImageView.image = nil
     }
     
     func configure(with viewModel: NewsTableViewCellViewModel) {
