@@ -40,6 +40,7 @@ class NewsTableViewCell: UITableViewCell {
     
     private let newsImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.clipsToBounds = true
         imageView.backgroundColor = .systemRed
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -96,7 +97,7 @@ class NewsTableViewCell: UITableViewCell {
             //fetch
             URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
                 guard let data = data, error == nil else { return }
-                
+                viewModel.imageData = data
                 DispatchQueue.main.async {
                     self?.newsImageView.image = UIImage(data: data)
                 }
