@@ -12,7 +12,7 @@ final class APICaller {
     
     struct Constants {
         static let topHeadlineURL = URL(string: "https://newsapi.org/v2/top-headlines?country=US&apiKey=eda6154a62744b7bbad849130a7f7b6f")
-        static let searchUrlString = "https://newsapi.org/v2/everything?sortedBy=popularity&apiKey=eda6154362744b7bbad849130a7f766f8g="
+        static let searchUrlString = "https://newsapi.org/v2/everything?q="
     }
     
     private init() {}
@@ -42,7 +42,7 @@ final class APICaller {
     
     public func search(with query: String, completion: @escaping (Result<[Article], Error>) -> Void) {
         guard !query.trimmingCharacters(in: .whitespaces).isEmpty else { return }
-        let urlString = Constants.searchUrlString + query
+        let urlString = Constants.searchUrlString + query + "&sortedBy=popularity&apiKey=eda6154a62744b7bbad849130a7f7b6f"
         
         guard let url = URL(string: urlString) else { return }
         
