@@ -2,12 +2,12 @@
 
 
 • UIKit<br>
-• Development of the application from scratch.
-• Conducting code refactor of individual modules.
-• Implementation of the network layer.
-• Implementation of viewing full news articles using SafariServices.
-• Implementation of news search by keywords.
-• Implementation of data updates via swiping (refreshControl).
+• Development of the application from scratch.<br>
+• Conducting code refactor of individual modules.<br>
+• Implementation of the network layer.<br>
+• Implementation of viewing full news articles using SafariServices.<br>
+• Implementation of news search by keywords.<br>
+• Implementation of data updates via swiping (refreshControl).<br>
 
 ![Image alt](https://github.com/nzhkv/News/blob/main/1.png)
 <br>
