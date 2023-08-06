@@ -110,6 +110,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
+                    self?.searchVC.dismiss(animated: true)
                 }
                 
             case .failure(let error):
